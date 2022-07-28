@@ -126,7 +126,7 @@ const colorList = [
           ['ivory'],
           ['antiquewhite'],
           ['linen'],
-          ['lavenredblush'],
+          ['lavenrerblush'],
           ['mistyrose'],
           ['gainsboro'],
           ['lightgray', 'lightgrey'],

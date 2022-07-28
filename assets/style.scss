@@ -1,5 +1,62 @@
-.color-rect {
-  max-width: 300px;
+html, body {
+  height: 100%;
+  font-family: 'Righteous', 'Arial', sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  flex: 0 1 300px;
+  margin: 0 auto;
+}
+
+%interface-element {
+  box-sizing: border-box;
+  margin: 10px 0;
+  width: 100%;
   height: 50px;
   border: 3px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.title {
+  @extend %interface-element;
+  height: auto;
+  border: none;
+  margin-bottom: 25px;
+}
+
+.color-rect {
+  @extend %interface-element;
+  height: 75px;
+}
+
+.answer {
+  @extend %interface-element;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.input {
+  @extend %interface-element;
+  display: block;
+  font-family: 'Righteous', 'Arial', sans-serif;
+  font-size: 20px;
+}
+
+.check-button {
+  @extend %interface-element;
+  display: block;
+  text-transform: uppercase;
+  font-family: 'Righteous', 'Arial', sans-serif;
+  font-size: 20px;
+  color: white;
+  background-color: black;
 }
