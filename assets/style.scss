@@ -1,6 +1,8 @@
 html, body {
-  height: 100%;
   font-family: 'Righteous', 'Arial', sans-serif;
+  @media (min-height: 768px) {
+    height: 100%;
+  }
 }
 
 body {
@@ -28,6 +30,7 @@ body {
   @extend %interface-element;
   height: auto;
   border: none;
+  margin-top: 25px;
   margin-bottom: 25px;
 }
 
