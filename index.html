@@ -10,9 +10,11 @@
 <body>
   <h1 class="title">Guess the Color</h1>
   <div class="color-rect js-color-rect"></div>
-  <p class="answer"></p>
-  <input type="text" class="input">
-  <button class="check js-check">Check!</button>
+  <p class="answer js-answer"></p>
+  <form action="#" id="form" class="js-guess-form">
+    <input type="text" class="input js-guess-input">
+  </form>
+  <button class="check" type="submit" form="form">Check!</button>
   <script src="./js/script.js"></script>
 </body>
 </html>

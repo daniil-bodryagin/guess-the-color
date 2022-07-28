@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const colorList = [
           ['indainred'],
@@ -141,13 +141,43 @@ const colorList = [
         ];
 
 const colorRect = document.querySelector('.js-color-rect');
-const checkButton = document.querySelector('.js-check');
+const answerText = document.querySelector('.js-answer');
+const checkForm = document.querySelector('.js-guess-form');
+const guessInput = document.querySelector('.js-guess-input');
+let currentColor;
 
 function setColor() {
-  let randomColorIndex = Math.round(Math.random() * (colorList.length - 1));
-  console.log(randomColorIndex)
-  colorRect.style.backgroundColor = colorList[randomColorIndex][0];
+  currentColor = colorList[Math.round(Math.random() * (colorList.length - 1))];
+  colorRect.style.backgroundColor = currentColor[0];
+}
+
+function getGuessAccuracy(guessText) {
+  if (!guessText) {
+    return 'no-guess';
+  }
+  return (currentColor.indexOf(guessText) >= 0) ? 'good' : 'bad';
+}
+
+function writeAnswer() {
+  const guessText = guessInput.value.toLowerCase();
+  const guessAccuracy = getGuessAccuracy(guessText);
+  if (guessAccuracy === 'good') {
+    answerText.textContent = `You've got it! It was really ${guessText}.`;
+  } else if (guessAccuracy === 'bad') {
+    answerText.textContent = `Nope, it was ${currentColor[0]}. Try again!`;
+  } else {
+    answerText.textContent = `You didn't even try! It was ${currentColor[0]}.`;
+  }
+}
+
+function clearInput() {
+  guessInput.value = '';
 }
 
 window.onload = setColor;
-checkButton.onclick = setColor;
+checkForm.onsubmit = function(e) {
+  e.preventDefault();
+  writeAnswer();
+  clearInput();
+  setColor();
+};
